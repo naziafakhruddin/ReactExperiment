@@ -2,3 +2,25 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+body {
+  background: #25a9fc;
+}
+.box {
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  width: 600px;
+  height: 420px;
+  background: none;
+}
+.head {
+  position: absolute;
+  top: 16.5%;
+  left: 25%;
+  width: 50%;
+  height: 67%;
+  background: #a6becf;
+  border-radius: 50%;
+}
