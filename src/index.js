@@ -6,7 +6,7 @@ import "./styles.css";
 //village
 class Koala extends React.Component {
   render() {
-    return <Box />;
+    return <Box colors={this.props.colors} />;
   }
 }
 
@@ -15,14 +15,14 @@ class Box extends React.Component {
   render() {
     return (
       <div className="box">
-        <EarLeft />
-        <EarRight />
-        <EyeLeft />
-        <EyeRight />
-        <Head />
-        <Nose />
-        <HairLeft />
-        <HairRight />
+        <EarLeft colors={this.props.colors} />
+        <EarRight colors={this.props.colors} />
+        <EyeLeft colors={this.props.colors} />
+        <EyeRight colors={this.props.colors} />
+        <Head color={this.props.colors.lightGray} />
+        <Nose color={this.props.colors.brown} />
+        <HairLeft color={this.props.colors.lightGray} />
+        <HairRight color={this.props.colors.lightGray} />
       </div>
     );
   }
@@ -33,8 +33,8 @@ class EarLeft extends React.Component {
   render() {
     return (
       <div>
-        <OuterEarLeft />
-        <InnerEarLeft />
+        <OuterEarLeft color={this.props.colors.lightGray} />
+        <InnerEarLeft color={this.props.colors.darkGray} />
       </div>
     );
   }
@@ -44,8 +44,8 @@ class EarRight extends React.Component {
   render() {
     return (
       <div>
-        <OuterEarRight />
-        <InnerEarRight />
+        <OuterEarRight color={this.props.colors.lightGray} />
+        <InnerEarRight color={this.props.colors.darkGray} />
       </div>
     );
   }
@@ -55,8 +55,8 @@ class EyeLeft extends React.Component {
   render() {
     return (
       <div>
-        <OuterEyeLeft />
-        <PupilLeft />
+        <OuterEyeLeft color={this.props.colors.white} />
+        <PupilLeft color={this.props.colors.navy} />
       </div>
     );
   }
@@ -65,8 +65,8 @@ class EyeRight extends React.Component {
   render() {
     return (
       <div>
-        <OuterEyeRight />
-        <PupilRight />
+        <OuterEyeRight color={this.props.colors.white} />
+        <PupilRight color={this.props.colors.navy} />
       </div>
     );
   }
@@ -75,75 +75,126 @@ class EyeRight extends React.Component {
 //houses
 class Head extends React.Component {
   render() {
-    return <div className="head" />;
+    return <div style={{ background: this.props.color }} className="head" />;
   }
 }
 
 class Nose extends React.Component {
   render() {
-    return <div className="nose" />;
+    return <div style={{ background: this.props.color }} className="nose" />;
   }
 }
 
 class HairLeft extends React.Component {
   render() {
-    return <div className="hair-left" />;
+    return (
+      <div style={{ background: this.props.color }} className="hair-left" />
+    );
   }
 }
 
 class HairRight extends React.Component {
   render() {
-    return <div className="hair-right" />;
+    return (
+      <div style={{ background: this.props.color }} className="hair-right" />
+    );
   }
 }
 
 class OuterEarRight extends React.Component {
   render() {
-    return <div className="outer-ear-right" />;
+    return (
+      <div
+        style={{ background: this.props.color }}
+        className="outer-ear-right"
+      />
+    );
   }
 }
 
 class InnerEarRight extends React.Component {
   render() {
-    return <div className="inner-ear-right" />;
+    return (
+      <div
+        style={{ background: this.props.color }}
+        className="inner-ear-right"
+      />
+    );
   }
 }
 
 class OuterEarLeft extends React.Component {
   render() {
-    return <div className="outer-ear-left" />;
+    return (
+      <div
+        style={{ background: this.props.color }}
+        className="outer-ear-left"
+      />
+    );
   }
 }
 
 class InnerEarLeft extends React.Component {
   render() {
-    return <div className="inner-ear-left" />;
+    return (
+      <div
+        style={{ background: this.props.color }}
+        className="inner-ear-left"
+      />
+    );
   }
 }
 
 class OuterEyeLeft extends React.Component {
   render() {
-    return <div className="outer-eye-left" />;
+    return (
+      <div
+        style={{ background: this.props.color }}
+        className="outer-eye-left"
+      />
+    );
   }
 }
 
 class PupilLeft extends React.Component {
   render() {
-    return <div className="pupil-left" />;
+    return (
+      <div style={{ background: this.props.color }} className="pupil-left" />
+    );
   }
 }
 
 class OuterEyeRight extends React.Component {
   render() {
-    return <div className="outer-eye-right" />;
+    return (
+      <div
+        style={{ background: this.props.color }}
+        className="outer-eye-right"
+      />
+    );
   }
 }
 
 class PupilRight extends React.Component {
   render() {
-    return <div className="pupil-right" />;
+    return (
+      <div style={{ background: this.props.color }} className="pupil-right" />
+    );
   }
 }
 
+//add this just above ReactDOM code
+//props objects
+const colorsObject = {
+  white: "#FFFFFF",
+  lightGray: "#A6BECF",
+  darkGray: "#819CAF",
+  brown: "#BE845F",
+  navy: "#27354A"
+};
+
 //"inject" to DOM
-ReactDOM.render(<Koala />, document.getElementById("koala"));
+ReactDOM.render(
+  <Koala colors={colorsObject} />,
+  document.getElementById("koala")
+);
